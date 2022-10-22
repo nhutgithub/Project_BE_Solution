@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var data = ViewBag.data;
+}
+<div class="card mt-4">
+    <div class="card-header row contentTop">
+        <div class="col-md-6">
+            <span style="float: left; font-size: 25px">Manage <b>Employees</b></span>
+
+        </div>
+        <div class="col-md-6">
+            <button type="button" class="btn btn-success" id="btnAdd" style="float: right" title="Add New Employee">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                Add New Employee
+            </button>
+        </div>
+
+    </div>
+    <div class="card-body">
+        <table class="table table-striped ">
+            <thead>
+                <tr style="font-weight: bold;">
+                    <td>No</td>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Address</td>
+                    <td>Phone</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in data)
+                {
+                    <tr>
+                        <td class="number"></td>
+                        <td>@item.Name</td>
+                        <td>@item.Email</td>
+                        <td>@item.Address</td>
+                        <td>@item.Phone</td>
+                        <td>
+                            <a href="" onclick="deleteEmployee('@item.Id')" data-bs-toggle="modal" data-bs-target="#comfirmAdd_Delete" title="Delete Employee @item.Name"><i class="fa fa-trash" aria-hidden="true" style="color: red;"></i></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<div class="modal fade" id="comfirmAdd_Delete" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalLabel"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cancel"></button>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="btnAdd_Delete"></button>
+            </div>
+        </div>
+    </div>
+</div>

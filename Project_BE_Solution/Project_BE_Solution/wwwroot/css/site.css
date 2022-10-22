@@ -1,0 +1,35 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    counter-reset: my-sec-counter;
+    -moz-user-select: none !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+.number::before {
+    counter-increment: my-sec-counter;
+    content: counter(my-sec-counter);
+}
+.contentTop {
+    background-color: #435d7d;
+    margin-right: 0;
+    margin-left: 0;
+    color: white;
+}
